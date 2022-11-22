@@ -27,3 +27,11 @@
 		}
 	}
 }
+
+@media (max-height: 800px) {
+	.app {
+		>div {
+			padding: 1rem;
+		}
+	}
+}
