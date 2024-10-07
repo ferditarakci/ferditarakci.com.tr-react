@@ -1,24 +1,17 @@
-import { createContext } from "react"
+import { createContext } from 'react'
 
 const AppContext = createContext()
 
 const AppContextProvider = ({ children }) => {
+	const { REACT_APP_MY_NAME: name, REACT_APP_TITLE: title, REACT_APP_DOMAIN: domain } = process.env
 
-	const name = process.env.REACT_APP_MY_NAME
-	const title = process.env.REACT_APP_TITLE
-	const domain = process.env.REACT_APP_DOMAIN
-
-	const values = {
+	const props = {
 		name,
 		title,
-		domain
+		domain,
 	}
 
-	return (
-		<AppContext.Provider value={values}>
-			{children}
-		</AppContext.Provider>
-	)
+	return <AppContext.Provider value={props}>{children}</AppContext.Provider>
 }
 
 export { AppContextProvider }
